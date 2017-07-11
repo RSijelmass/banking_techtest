@@ -11,4 +11,10 @@ describe('Account', function() {
 			expect(account.startBalance).toEqual(0);
 		});	
 	});
+
+	describe('#deposit', function() {
+		xit('takes in an amount and adds to the balance', function() {
+			expect(account.deposit(20)).toBeDefined();
+		});
+	});
 });

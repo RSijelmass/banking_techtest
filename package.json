@@ -1,0 +1,24 @@
+{
+  "name": "bank_techtest",
+  "version": "1.0.0",
+  "description": "A trial tech test [...].",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RSijelmass/banking_techtest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RSijelmass/banking_techtest/issues"
+  },
+  "homepage": "https://github.com/RSijelmass/banking_techtest#readme"
+}
