@@ -13,8 +13,14 @@ describe('Account', function() {
 	});
 
 	describe('#deposit', function() {
-		xit('takes in an amount and adds to the balance', function() {
-			expect(account.deposit(20)).toBeDefined();
+		it('returns message with amount deposited', function() {
+			expect(account.deposit(20)).toEqual('You deposited £20.00');
+		});
+	});
+
+	describe('#withdraw', function() {
+		it('returns message with amount withdrawn', function() {
+			expect(account.withdraw(20)).toEqual('You withdrew £20.00');
 		});
 	});
 });

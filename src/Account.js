@@ -6,10 +6,12 @@ function Account(transactionHistory = new TransactionHistory()) {
 
 	this.deposit = function(amount) {
 		transactionHistory.recordDeposit(amount);
+		return `You deposited £${amount.toFixed(2)}`
 	};
 
 	this.withdraw = function(amount) {
 		transactionHistory.recordWithdrawal(amount);
+		return `You withdrew £${amount.toFixed(2)}`
 	};
 
 	this.printStatement = function() {
