@@ -3,11 +3,16 @@ function Account(transactionHistory = new TransactionHistory()) {
 	this.transactionHistory = transactionHistory;
 
 	this.deposit = function(amount) {
-		transactionHistory.record_deposit(20);
+		transactionHistory.record_deposit(amount);
+	};
+
+	this.withdraw = function(amount) {
+		transactionHistory.record_withdrawal(amount);
 	};
 };
 
-function TransactionHistory() {
+function TransactionHistory(printer = new Printer()) {
+	this.printer = printer;
 	this.transactions = [];
 
 	this.record_deposit = function(amount) {
@@ -18,3 +23,10 @@ function TransactionHistory() {
 		this.transactions.push(-amount)
 	};
 };
+
+function Printer() {
+	this.print_headline = function() {
+		return 'date || credit || debit || balance'
+	};
+};
+

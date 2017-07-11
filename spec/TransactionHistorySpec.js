@@ -4,6 +4,10 @@ describe('TransactionHistory', function() {
 	 	transactionHistory = new TransactionHistory();
 	 });
 
+	 describe('initialize', function() {
+	 	// expect(this.printer).toEqual('printer')
+	 });
+
 	 describe('#record_deposit', function() {
 	 	it('saves a deposit in a list of transactions', function() {
 		 	transactionHistory.record_deposit(20)
