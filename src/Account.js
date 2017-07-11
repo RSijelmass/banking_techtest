@@ -35,5 +35,9 @@ function Printer() {
 	this.print_headline = function() {
 		return 'date || credit || debit || balance'
 	};
+
+	this.print_deposit = function(date, amount, balance) {
+		return `${ date } || ${ amount.toFixed(2) } || || ${ balance.toFixed(2) }`
+	};
 };
 
