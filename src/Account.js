@@ -1,3 +1,4 @@
+// understands the flux of money
 function Account(transactionHistory = new TransactionHistory()) {
 	this.startBalance = 0;	//turn into a constant - how to test?
 	this.transactionHistory = transactionHistory;
@@ -19,6 +20,7 @@ function Account(transactionHistory = new TransactionHistory()) {
 	};
 };
 
+// understands the past money transactions
 function TransactionHistory(printer = new Printer()) {
 	this.printer = printer;
 	this.transactions = [];
@@ -48,13 +50,14 @@ function TransactionHistory(printer = new Printer()) {
 	};
 };
 
+// understands the output of transaction history
 function Printer() {
+	HEADLINE =  'date || credit || debit || balance'
 	this.statement = []
 	
 	this.printHeadline = function() {
-		headline = 'date || credit || debit || balance'
-		this.statement.unshift(headline);
-		return headline;
+		this.statement.unshift(HEADLINE);
+		return HEADLINE;
 	};
 
 	this.printDeposit = function(date, amount, balance) {

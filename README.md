@@ -25,6 +25,10 @@ A trial tech test [...].
 - Prints out the array (headline first) with all deposits/withdrawals in chronological
   order
 
+### How to run the program
+- Clone this repo
+- `cd bank_techtest`
+
 ### How to run the tests
 In the command line, run `open SpecRunner.html`
 This opens up a window in your preferred web browser. Here, one can see all the tests.
@@ -61,3 +65,7 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+
+### Next Steps
+- test: amount has to be in numbers
+- test: withdrawal can't go below 0
