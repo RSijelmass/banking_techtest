@@ -10,9 +10,15 @@ describe('Printer', function() {
 		});
 	});
 
-	describe('transaction', function() {
+	describe('#printDeposit', function() {
 		it('prints a line from one deposit', function() {
 			expect(printer.printDeposit('01/01/2001', 50, 250)).toEqual('01/01/2001 || 50.00 || || 250.00')
+		});
+	});
+	
+	describe('#printWithdrawal', function() {
+		it('prints a line from one withdrawal', function() {
+			expect(printer.printWithdrawal('01/01/2001', 50, 250)).toEqual('01/01/2001 || || 50.00 || 250.00')
 		});
 	});
 });

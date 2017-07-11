@@ -30,4 +30,12 @@ describe('TransactionHistory', function() {
 			expect(transactionHistory.calculateBalance()).toEqual(160)
 		});
 	});
+
+	describe('#getCurrentDate', function() {
+		it('returns current date in proper styling', function() {
+			var date = new Date();
+			var currentDate = date.toLocaleDateString();
+			expect(transactionHistory.getCurrentDate()).toEqual(currentDate)
+		});
+	});
 });
