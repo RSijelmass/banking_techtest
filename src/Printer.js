@@ -1,4 +1,4 @@
-// understands the output of transaction history
+// understands the displayal of transaction history
 (function(exports) {
 	 function Printer() {
 		HEADLINE =  'date || credit || debit || balance'

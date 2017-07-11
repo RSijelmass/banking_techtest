@@ -1,7 +1,16 @@
 Bank Tech Test
 ==============
 
-A trial tech test [...].
+A trial tech test taken in week 10 at Makers Academy. 
+
+NB: Nowhere has it been stated if someone can withdraw money when balance would go
+below 0. This is normally something I'd ask about when given the tech test. As there
+is no (potential) employer in this scenario, I've made the assumption that the no
+money can be withdrawn if the balance doesn't permit it.
+
+### Technologies used
+- vanilla Javascript
+- Jasmine
 
 ### Objects
 ##### Account
