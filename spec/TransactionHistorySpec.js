@@ -21,4 +21,13 @@ describe('TransactionHistory', function() {
 			expect(transactionHistory.transactions).toEqual([-20])
 		});
 	 });
+
+	describe('#calculate_balance', function() {
+		it('calculates current balance after deposits', function() {
+			transactionHistory.record_deposit(50)
+			transactionHistory.record_deposit(10)
+			transactionHistory.record_deposit(100)
+			expect(transactionHistory.calculate_balance()).toEqual(160)
+		});
+	});
 });

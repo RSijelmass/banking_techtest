@@ -22,6 +22,13 @@ function TransactionHistory(printer = new Printer()) {
 	this.record_withdrawal = function(amount) {
 		this.transactions.push(-amount)
 	};
+
+	this.calculate_balance = function() {
+		var total_balance = this.transactions.reduce(function(sum, transaction) {
+			return sum + transaction;
+		}, 0);
+		return total_balance;
+	};
 };
 
 function Printer() {
