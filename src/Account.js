@@ -3,11 +3,11 @@ function Account(transactionHistory = new TransactionHistory()) {
 	this.transactionHistory = transactionHistory;
 
 	this.deposit = function(amount) {
-		transactionHistory.record_deposit(amount);
+		transactionHistory.recordDeposit(amount);
 	};
 
 	this.withdraw = function(amount) {
-		transactionHistory.record_withdrawal(amount);
+		transactionHistory.recordWithdrawal(amount);
 	};
 };
 
@@ -15,29 +15,37 @@ function TransactionHistory(printer = new Printer()) {
 	this.printer = printer;
 	this.transactions = [];
 
-	this.record_deposit = function(amount) {
+	this.recordDeposit = function(amount) {
 		this.transactions.push(amount)
+		var date = '01/01/01' // this.getDate
+	 	printer.printDeposit(date, amount, this.calculateBalance())
 	};	
 	
-	this.record_withdrawal = function(amount) {
+	this.recordWithdrawal = function(amount) {
 		this.transactions.push(-amount)
 	};
 
-	this.calculate_balance = function() {
-		var total_balance = this.transactions.reduce(function(sum, transaction) {
+	this.calculateBalance = function() {
+		var totalBalance = this.transactions.reduce(function(sum, transaction) {
 			return sum + transaction;
 		}, 0);
-		return total_balance;
+		return totalBalance;
 	};
 };
 
 function Printer() {
-	this.print_headline = function() {
-		return 'date || credit || debit || balance'
+	this.printedStatement = []
+
+	this.printHeadline = function() {
+		headline = 'date || credit || debit || balance'
+		this.printedStatement.push(headline);
+		return headline;
 	};
 
-	this.print_deposit = function(date, amount, balance) {
-		return `${ date } || ${ amount.toFixed(2) } || || ${ balance.toFixed(2) }`
+	this.printDeposit = function(date, amount, balance) {
+		var statement = `${ date } || ${ amount.toFixed(2) } || || ${ balance.toFixed(2) }`
+		this.printedStatement.push(statement)
+		return statement;
 	};
 };
 

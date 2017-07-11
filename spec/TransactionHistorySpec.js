@@ -8,26 +8,26 @@ describe('TransactionHistory', function() {
 	 	// expect(this.printer).toEqual('printer')
 	 });
 
-	 describe('#record_deposit', function() {
+	 describe('#recordDeposit', function() {
 	 	it('saves a deposit in a list of transactions', function() {
-		 	transactionHistory.record_deposit(20)
+		 	transactionHistory.recordDeposit(20)
 			expect(transactionHistory.transactions).toEqual([20])
 		});
 	 });
 
-	describe('#record_withdrawal', function() {
+	describe('#recordWithdrawal', function() {
 	 	it('saves a withdrawal in a list of transactions', function() {
-		 	transactionHistory.record_withdrawal(20)
+		 	transactionHistory.recordWithdrawal(20)
 			expect(transactionHistory.transactions).toEqual([-20])
 		});
 	 });
 
-	describe('#calculate_balance', function() {
+	describe('#calculateBalance', function() {
 		it('calculates current balance after deposits', function() {
-			transactionHistory.record_deposit(50)
-			transactionHistory.record_deposit(10)
-			transactionHistory.record_deposit(100)
-			expect(transactionHistory.calculate_balance()).toEqual(160)
+			transactionHistory.recordDeposit(50)
+			transactionHistory.recordDeposit(10)
+			transactionHistory.recordDeposit(100)
+			expect(transactionHistory.calculateBalance()).toEqual(160)
 		});
 	});
 });
