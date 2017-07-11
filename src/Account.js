@@ -2,7 +2,7 @@ function Account(transactionHistory = new TransactionHistory()) {
 	this.startBalance = 0;	//turn into a constant - how to test?
 	this.transactionHistory = transactionHistory;
 	
-	transactionHistory.transactions.push(this.startBalance);
+	this.transactionHistory.transactions.push(this.startBalance);
 
 	this.deposit = function(amount) {
 		transactionHistory.recordDeposit(amount);
@@ -10,6 +10,10 @@ function Account(transactionHistory = new TransactionHistory()) {
 
 	this.withdraw = function(amount) {
 		transactionHistory.recordWithdrawal(amount);
+	};
+
+	this.printStatement = function() {
+		this.transactionHistory.printer.printStatement();
 	};
 };
 
@@ -44,8 +48,6 @@ function TransactionHistory(printer = new Printer()) {
 
 function Printer() {
 	this.statement = []
-	
-	//this.printHeadline();
 	
 	this.printHeadline = function() {
 		headline = 'date || credit || debit || balance'

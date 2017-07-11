@@ -1,10 +1,50 @@
-# Bank Tech Test
+Bank Tech Test
+==============
 
 A trial tech test [...].
 
 ### Objects
+##### Account
+- has an initial balance (standard set to 0)
+- can deposit money
+- can withdraw money
+
+##### TransactionHistory
+- records when a deposit has been made with a date
+	- stores it in an array
+	- calls printer
+- records when a withdrawal has been made with a date
+	- stores it in an array
+	- calls printer
+
+
+##### Printer
+- Prints out the headline
+- Creates a line to view a deposit, stores it in an array
+- Creates a line to view a withdrawal, stores it in an array
+- Prints out the array (headline first) with all deposits/withdrawals in chronological
+  order
 
 ### How to run the tests
+In the command line, run `open SpecRunner.html`
+This opens up a window in your preferred web browser. Here, one can see all the tests.
+To play around with the code, one can open the console (on a Mac, this is cmd + option
++ J).
+Here, one can: 
+- create a new account: `account = new Account`
+- deposit money: `account.deposit([value])`
+- withdraw money `account.withdraw([value])`
+- see a statement of past transactions: `account.printStatement()`
+
+### Things I struggled with
+- The project has initially been written with a variable named ‘balance’, to keep track
+of all deposits and withdrawals. However, I felt like the code would be cleaner when
+having less states and more behaviour. This is why the instance variable balance is
+converted into a method within the TransactionHistory.
+- However, Jasmine offers limited solutions to test for behaviour; whereas rspec gives
+  creative tests like expect { a thing }.to change { another thing }. by (a value), I
+often found myself resorting to expect(*a variable*).toEqual(*a value*)
+
 
 ### Expected Output
 
