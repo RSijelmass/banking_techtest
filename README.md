@@ -37,8 +37,7 @@ directing the results to another output.
 ### How to run the tests
 In the command line, run `open SpecRunner.html`
 This opens up a window in your preferred web browser. Here, one can see all the tests.
-To play around with the code, one can open the console (on a Mac, this is cmd + option
-+ J).
+To play around with the code, one can open the console (on a Mac, this is cmd + option + J).
 Here, one can: 
 - create a new account: `account = new Account`
 - deposit money: `account.deposit([value])`
