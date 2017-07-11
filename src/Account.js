@@ -43,26 +43,33 @@ function TransactionHistory(printer = new Printer()) {
 };
 
 function Printer() {
-	this.printedStatement = []
+	this.statement = []
 	
 	//this.printHeadline();
 	
 	this.printHeadline = function() {
 		headline = 'date || credit || debit || balance'
-		this.printedStatement.push(headline);
+		this.statement.unshift(headline);
 		return headline;
 	};
 
 	this.printDeposit = function(date, amount, balance) {
-		var statement = `${ date } || ${ amount.toFixed(2) } || || ${ balance.toFixed(2) }`
-		this.printedStatement.push(statement)
-		return statement;
+		var statementLine = `${ date } || ${ amount.toFixed(2) } || || ${ balance.toFixed(2) }`
+		this.statement.push(statementLine)
+		return statementLine;
 	};
 	
 	this.printWithdrawal = function(date, amount, balance) {
-		var statement = `${ date } || || ${ amount.toFixed(2) } || ${ balance.toFixed(2) }`
-		this.printedStatement.push(statement)
-		return statement;
+		var statementLine = `${ date } || || ${ amount.toFixed(2) } || ${ balance.toFixed(2) }`
+		this.statement.push(statementLine)
+		return statementLine;
+	};
+
+	this.printStatement = function() {
+		this.printHeadline();
+		this.statement.forEach(function(line) {
+			console.log(line);
+		});
 	};
 };
 
