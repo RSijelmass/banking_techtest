@@ -13,4 +13,8 @@ function TransactionHistory() {
 	this.record_deposit = function(amount) {
 		this.transactions.push(amount)
 	};	
+	
+	this.record_withdrawal = function(amount) {
+		this.transactions.push(-amount)
+	};
 };
