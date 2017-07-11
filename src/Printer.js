@@ -22,8 +22,9 @@
 		};
 
 		this.printStatement = function() {
+			var reverseStatement = this.statement.reverse();
 			this.printHeadline();
-			this.statement.forEach(function(line) {
+			reverseStatement.forEach(function(line) {
 				console.log(line);
 			});
 		};
