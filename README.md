@@ -29,6 +29,11 @@ A trial tech test [...].
 - Clone this repo
 - `cd bank_techtest`
 
+If one would wish to longer output the results on the console but rather to an
+other form of output, go to #printStatement in the Printer object. Here, one can
+change to print each line; e.g. by changing `console.log(line)` to `return line` and
+directing the results to another output.
+
 ### How to run the tests
 In the command line, run `open SpecRunner.html`
 This opens up a window in your preferred web browser. Here, one can see all the tests.
