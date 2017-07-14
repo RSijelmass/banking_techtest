@@ -31,7 +31,12 @@ describe('TransactionHistory', function() {
 			transactionHistory.recordWithdrawal(30)
 			expect(function() { transactionHistory.recordWithdrawal(20) }).toThrow('Not enough money on the account!')
 		});
-	 });
+	 it('calls printer to save a new line', function() {
+			spyOn(testTransactionHistory.printer, 'printWithdrawal')
+			testTransactionHistory.recordWithdrawal(20);
+			expect(testTransactionHistory.printer.printWithdrawal).toHaveBeenCalled();
+		});
+});
 
 	describe('#calculateBalance', function() {
 		it('calculates current balance after deposits', function() {
