@@ -11,6 +11,7 @@
 		};	
 		
 		this.recordWithdrawal = function(amount) {
+			if(this.calculateBalance() < 0) throw 'Not enough money on the account!' 
 			this.transactions.push(-amount)
 			var date = this.getCurrentDate()
 			printer.printWithdrawal(date, amount, this.calculateBalance())

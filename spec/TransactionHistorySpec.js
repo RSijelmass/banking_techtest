@@ -2,6 +2,7 @@ describe('TransactionHistory', function() {
 	 var transactionHistory;
 	 beforeEach(function() {
 	 	transactionHistory = new TransactionHistory();
+		testTransactionHistory = new TransactionHistory();
 	 });
 
 	 describe('initialize', function() {
@@ -13,12 +14,22 @@ describe('TransactionHistory', function() {
 		 	transactionHistory.recordDeposit(20)
 			expect(transactionHistory.transactions).toEqual([20])
 		});
+		it('calls printer to save a new line', function() {
+			spyOn(testTransactionHistory.printer, 'printDeposit')
+			testTransactionHistory.recordDeposit(20);
+			expect(testTransactionHistory.printer.printDeposit).toHaveBeenCalled();
+		});
 	 });
 
 	describe('#recordWithdrawal', function() {
 	 	it('saves a withdrawal in a list of transactions', function() {
-		 	transactionHistory.recordWithdrawal(20)
-			expect(transactionHistory.transactions).toEqual([-20])
+		 	transactionHistory.recordDeposit(50)
+			transactionHistory.recordWithdrawal(20)
+			expect(transactionHistory.transactions).toEqual([50, -20])
+		});
+		it('throws an error if withdrawal goes below 0', function() {
+			transactionHistory.recordWithdrawal(30)
+			expect(function() { transactionHistory.recordWithdrawal(20) }).toThrow('Not enough money on the account!')
 		});
 	 });
 
